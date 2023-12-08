@@ -1,0 +1,26 @@
+[
+  {
+    "titre": "IFT436-TP4",
+    "etat": "En cours",
+    "date_fin": "2023-12-11",
+    "temps_restant": "22 jours"
+  },
+  {
+    "titre": "IFT320-TP4",
+    "etat": "En cours",
+    "date_fin": "2023-12-14",
+    "temps_restant": "23 jours"
+  },
+  {
+    "titre": "IFT215-Projet",
+    "etat": "En cours",
+    "date_fin": "2023-12-17",
+    "temps_restant": "21 jours"
+  },
+  {
+    "titre": "IFT359-TP3.5",
+    "etat": "En cours",
+    "date_fin": "2023-12-09",
+    "temps_restant": "21 jours"
+  }
+]

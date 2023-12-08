@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Remise de Devoir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            background-color: #ccc;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #999;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1>Remise de Devoir</h1>
+    <h2> Remise TP4-IFT320 </h2>
+
+    <form action="index.html" method="post" enctype="multipart/form-data">
+        <label for="fichier">Sélectionnez un fichier :</label>
+        <br>
+        <input type="file" name="fichier" id="fichier" required>
+        <br>
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <button onclick="retourPagePrecedente()">Retour</button>
+
+    <script>
+        function retourPagePrecedente() {
+            window.history.back();
+        }
+
+        document.querySelector('form').addEventListener('submit', function() {
+            alert('Your TP4 - IFT320 was Successfully Submitted');
+        });
+    </script>
+</body>
+</html>

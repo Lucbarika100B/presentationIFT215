@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Turnin 2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="navbar">
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="#home">Accueil</a></li>
+                <li class="navbar-item"><a href="#services">Services</a></li>
+                <li class="navbar-item"><a href="#about">À propos</a></li>
+                <li class="navbar-item"><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </div>
+    <div id="filter-settings">
+        <label for="selectTri">Trier par:</label>
+        <select id="selectTri">
+            <option value="tempsRestant">Temps restant</option>
+            <option value="nom">Nom</option>
+        </select>
+        <script>
+
+            // Fonction de tri par temps restant
+            function comparerTempsRestant(a, b) {
+                const tempsRestantA = calculerJoursRestants(a.date_fin);
+                const tempsRestantB = calculerJoursRestants(b.date_fin);
+
+                return tempsRestantA - tempsRestantB;
+            }
+
+            // Fonction de tri par nom
+            function trierParNom(a, b) {
+                const nomAElement = a.querySelector('h2');
+                const nomBElement = b.querySelector('h2');
+
+                // Vérifier si les éléments h2 existent avant d'accéder à textContent
+                if (!nomAElement || !nomBElement) {
+                    return 0; // Si l'un des éléments n'existe pas, la comparaison est indéterminée
+                }
+
+                const nomA = nomAElement.textContent;
+                const nomB = nomBElement.textContent;
+
+                return nomA.localeCompare(nomB);
+            }
+            // Événement de changement de la liste déroulante
+            const selectTri = document.getElementById("selectTri"); // Assurez-vous d'avoir une liste déroulante avec l'id "selectTri"
+
+            selectTri.addEventListener("change", function () {
+                var option = selectTri.value;
+                mettreAJourOrdreTri(option);
+            });
+
+            // Fonction pour mettre à jour l'ordre des cours dans la grille
+            function mettreAJourOrdreTri(option) {
+                const coursContainer = document.getElementById("gridCours");
+                const coursBoxes = Array.from(coursContainer.children);
+                console.log(coursBoxes);
+                // Crée une copie du tableau initial avant de le trier
+                const coursBoxesCopy = [...coursBoxes];
+
+                // Trie les éléments en fonction de l'option choisie
+                const sortedCours = option === 'tempsRestant' ? coursBoxesCopy.sort(comparerTempsRestant) : coursBoxesCopy.sort(trierParNom);
+
+                // Supprime tous les éléments de la grille
+                while (coursContainer.firstChild) {
+                    coursContainer.removeChild(coursContainer.firstChild);
+                }
+
+                // Ajoute les éléments triés à la grille
+                sortedCours.forEach(coursBox => coursContainer.appendChild(coursBox));
+                console.log(sortedCours);
+            }
+
+        </script>
+    </div>
+    <div class="container flex-container">
+        <div id="gridCours" class="cours-section">
+        </div>
+        <div id="calendar-container" class="calendar-section">
+            <div id="calendar"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2023 turninV2.com</p>
+        <p>Email : info@turninV2.com </p>
+        <p>Tél : +1 514 266 2270 </p>
+    </footer>
+</body>
+</html>

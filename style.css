@@ -1,0 +1,135 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa; /* Fond très clair */
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #007bff; /* Bleu vif */
+    overflow: hidden;
+    padding: 14px 16px;
+    width: 100%;
+    margin: 0;
+    max-height: 100px;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    float: left;
+}
+
+.navbar-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour couleur et transformation */
+}
+
+.navbar-item a:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+    transform: scale(1.1); /* Légère augmentation de taille */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#gridCours {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cours-box {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #28a745; /* Vert vif */
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s ease; /* Transitions pour couleur et transformation */
+}
+
+.cours-box:hover {
+    background-color: #e9f5eb; /* Fond vert pâle au survol */
+    transform: translateY(-5px); /* Déplacement vers le haut */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #343a40;
+    font-size: 1.2em;
+}
+
+.cours-info {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.cours-info span {
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #007bff; /* Même bleu que la navbar */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin: 0;
+    transition: background-color 0.3s ease; /* Transition pour couleur */
+}
+
+.footer:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+}
+
+#calendar-container {
+    flex: 1;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#calendar {
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fc-event {
+    background-color: #fd7e14; /* Orange vif */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition pour couleur */
+}
+
+.fc-event:hover {
+    background-color: #f97316; /* Orange plus foncé au survol */
+}
